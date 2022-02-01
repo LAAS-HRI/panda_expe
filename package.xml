@@ -50,32 +50,29 @@
   <!--   <doc_depend>doxygen</doc_depend> -->
   <buildtool_depend>catkin</buildtool_depend>
   <build_depend>ar_track_alvar</build_depend>
-  <build_depend>franka_ros</build_depend>
-  <build_depend>librealsense</build_depend>
+  <build_depend>franka_control</build_depend>
   <build_depend>overworld</build_depend>
   <build_depend>panda_moveit_config</build_depend>
   <build_depend>panda_mtc</build_depend>
-  <build_depend>realsense-ros</build_depend>
+  <build_depend>realsense2_camera</build_depend>
   <build_depend>roscpp</build_depend>
   <build_depend>rospy</build_depend>
   <build_depend>std_msgs</build_depend>
   <build_export_depend>ar_track_alvar</build_export_depend>
-  <build_export_depend>franka_ros</build_export_depend>
-  <build_export_depend>librealsense</build_export_depend>
+  <build_export_depend>franka_control</build_export_depend>
   <build_export_depend>overworld</build_export_depend>
   <build_export_depend>panda_moveit_config</build_export_depend>
   <build_export_depend>panda_mtc</build_export_depend>
-  <build_export_depend>realsense-ros</build_export_depend>
+  <build_export_depend>realsense2_camera</build_export_depend>
   <build_export_depend>roscpp</build_export_depend>
   <build_export_depend>rospy</build_export_depend>
   <build_export_depend>std_msgs</build_export_depend>
   <exec_depend>ar_track_alvar</exec_depend>
-  <exec_depend>franka_ros</exec_depend>
-  <exec_depend>librealsense</exec_depend>
+  <exec_depend>franka_control</exec_depend>
   <exec_depend>overworld</exec_depend>
   <exec_depend>panda_moveit_config</exec_depend>
   <exec_depend>panda_mtc</exec_depend>
-  <exec_depend>realsense-ros</exec_depend>
+  <exec_depend>realsense2_camera</exec_depend>
   <exec_depend>roscpp</exec_depend>
   <exec_depend>rospy</exec_depend>
   <exec_depend>std_msgs</exec_depend>

@@ -9,12 +9,11 @@ project(panda_expe)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
   ar_track_alvar
-  franka_ros
-  librealsense
+  franka_control
   overworld
   panda_moveit_config
   panda_mtc
-  realsense-ros
+  realsense2_camera
   roscpp
   rospy
   std_msgs
