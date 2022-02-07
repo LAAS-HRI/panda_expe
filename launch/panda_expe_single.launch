@@ -1,15 +1,16 @@
 <launch>
     
     <arg name="fake" default="false" />
-    <arg name="robot_ip" default="172.17.1.3" />
     <arg name="use_octomap" default="false" />
     <arg name="load_gripper" default="true" />
+    <arg name="dual" default="false" />
 
-     <!-- Launch ar track alvar with the given tags-->
-    <include file="$(find franka_control)/launch/franka_control.launch">
-        <arg name="robot_ip" value="$(arg robot_ip)"/>
-        <arg name="load_gripper" value="$(arg load_gripper)" />
-    </include>
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" output="screen"/>
+    <node name="joint_state_publisher" type="joint_state_publisher" pkg="joint_state_publisher" output="screen">
+        <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find panda_moveit_config)/config/pandas_arm_hand.urdf.xacro'" />
+        <rosparam command="load" param="source_list">[panda_state_controller/joint_states, panda/franka_gripper/joint_states] </rosparam>
+        <param name="rate" value="30"/>
+    </node>
 
     <!-- Launch realsense camera node -->
     <include file="$(find realsense2_camera)/launch/rs_camera.launch"/>
@@ -24,7 +25,7 @@
     <node pkg="tf2_ros" type="static_transform_publisher" name="realsense_to_panda_link_publisher" args="0.53 -0.61 0.13 0 0 0.707 0.707 panda_link0 realsense_link" />
 
 
-    <!-- Launch ontologenius -->
+    <!-- Launch ontologenius 
     <arg name="language" default="en"/>
     <arg name="intern_file" default="none"/>
     <arg name="files" default="
@@ -35,21 +36,24 @@
     "/>
     <node name="ontologenius_core" pkg="ontologenius" type="ontologenius_multi" output="screen" args="-l $(arg language) -i $(arg intern_file) $(arg files)"> </node>
     <node name="ontologenius_gui" pkg="ontologenius" type="ontoloGUI" output="screen"> </node>
+    -->
 
-    <!-- Launch overworld -->
-    <node name="overworld" pkg="overworld" type="overworld_node" output="log" respawn="true"/>
+    <!-- Launch overworld 
+    <node name="overworld" pkg="overworld" type="overworld_node" output="log" respawn="false"/>
+    -->
 
     <!-- Launch Moveit -->
     <include file="$(find panda_moveit_config)/launch/panda.launch">
         <arg name="load_gripper" value="$(arg load_gripper)" />
+        <arg name="dual" value="$(arg dual)" />
     </include>
 
     <!-- Launch Rviz -->
     <include file="$(find panda_moveit_config)/launch/moveit_rviz.launch"/>
 
-    <!-- Launch Motion Planning Node -->
+    <!-- Launch Motion Planning Node 
     <param name="/panda_tasks_node/planner_config" type="string" value="RRTConnect" />
     <node name="panda_tasks_node" pkg="panda_mtc" type="panda_tasks" output="screen" respawn="false"/>
-
+    -->
 
 </launch>
