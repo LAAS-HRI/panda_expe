@@ -10,6 +10,8 @@ project(panda_expe)
 find_package(catkin REQUIRED COMPONENTS
   ar_track_alvar
   franka_control
+  franka_hw
+  franka_msgs
   overworld
   panda_moveit_config
   panda_mtc
@@ -17,6 +19,8 @@ find_package(catkin REQUIRED COMPONENTS
   roscpp
   rospy
   std_msgs
+  controller_interface
+  controller_manager
 )
 
 ## System dependencies are found with CMake's conventions
