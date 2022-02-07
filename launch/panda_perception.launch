@@ -1,6 +1,4 @@
 <launch>
-	<env name="ROS_HOSTNAME" value="localhost" />
-
 	<arg name="marker_size" default="10" />
 	<arg name="max_new_marker_error" default="0.08" />
 	<arg name="max_track_error" default="1.0" />
@@ -8,7 +6,7 @@
 	<arg name="cam_image_topic" default="/realsense/color/image_raw" />
 	<arg name="cam_info_topic" default="/realsense/color/camera_info" />
 
-	<arg name="output_frame" default="/panda_link0" />
+	<arg name="output_frame" default="/realsense_link" />
 
 	<arg name="bundle_files" default=" $(find panda_expe)/tags/cube_g.xml
 									   $(find panda_expe)/tags/cube_r_1.xml
