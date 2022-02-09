@@ -26,7 +26,7 @@
     <node pkg="tf2_ros" type="static_transform_publisher" name="realsense_to_panda_link_publisher" args="0.53 -0.61 0.13 0 0 0.707 0.707 panda_2_link0 realsense_link" />
 
 
-    <!-- Launch ontologenius 
+    <!-- Launch ontologenius -->
     <arg name="language" default="en"/>
     <arg name="intern_file" default="none"/>
     <arg name="files" default="
@@ -37,11 +37,11 @@
     "/>
     <node name="ontologenius_core" pkg="ontologenius" type="ontologenius_multi" output="screen" args="-l $(arg language) -i $(arg intern_file) $(arg files)"> </node>
     <node name="ontologenius_gui" pkg="ontologenius" type="ontoloGUI" output="screen"> </node>
-    -->
 
-    <!-- Launch overworld 
+
+    <!-- Launch overworld -->
     <node name="overworld" pkg="overworld" type="overworld_node" output="log" respawn="false"/>
-    -->
+    
 
     <!-- Launch Moveit -->
     <include file="$(find panda_moveit_config)/launch/panda.launch">
@@ -52,9 +52,9 @@
     <!-- Launch Rviz -->
     <include file="$(find panda_moveit_config)/launch/moveit_rviz.launch"/>
 
-    <!-- Launch Motion Planning Node 
+    <!-- Launch Motion Planning Node -->
     <param name="/panda_tasks_node/planner_config" type="string" value="RRTConnect" />
     <node name="panda_tasks_node" pkg="panda_mtc" type="panda_tasks" output="screen" respawn="false"/>
-    -->
+    -
 
 </launch>
